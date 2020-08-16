@@ -1,31 +1,61 @@
 #mainContainer {
-
   position: absolute;
   left: 50%;
   top: 20%;
   transform: translate(-50%, -50%);
+  font-family: Nunito;
   text-align: center;
 }
 
 #mainContent {
-  background-color: blueviolet;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-h1, p {
+h1 {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #BC7AFE, #3132FD);
+  font-size: 50px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 16px;
+  letter-spacing: 8px;
+}
+
+h2, p {
   color: #01FFFF;
 }
 
-.btn {
-  background: transparent;
-  border: 0.02em solid #01FFFF;
-  border-radius: 0.5em;
-  padding: 1em;
-  color: #01FFFF;
+.btnWrapper {
+  border-radius: 1em;
+  width: 7em;
+  height: 8em;
+  padding: 2.7em 1em;
+  position: absolute;
+  margin-left: -21px;
+  border: solid 1px transparent;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(180deg, #C248FF, #8723ED);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #0F0124 inset;
 }
+
+.btn {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, #0D85C6, #01FFFF );
+  border: transparent;
+  font-family: Nunito;
+}
+
 #contentView {
   display: flex;
   position: relative;
@@ -63,5 +93,5 @@ h1, p {
 .btnContainer {
   position: relative;
   width: 100px;
-  margin-top: 20%;
+  margin-top: 15%;
 }

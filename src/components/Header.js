@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div>
       <header>
-        <h1>WELCOME TO THE</h1>
+        <h2>WELCOME TO THE</h2>
         <h1>HYPER SWIPE</h1>
       </header>
       <p>These are some things we like, and maybe you like them too?

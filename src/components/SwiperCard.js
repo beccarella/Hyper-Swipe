@@ -3,8 +3,9 @@ import { Card, Button, Container } from 'react-bootstrap';
 
 const url = 'https://hyper-swipe.herokuapp.com/cards';
 
-function SwiperCard() {
+const SwiperCard = () => {
   const [cardData, setCardData] = useState([]);
+
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
@@ -15,7 +16,9 @@ function SwiperCard() {
     return(
       <Card key={index} className="cardContainer">
         <Container className="btnContainer">
-          <Button onClick={() => console.log(item.id)}>DISLIKE</Button>
+          <div className="btnWrapper">
+            <Button className="btn" onClick={() => console.log(item.id)}>DISLIKE</Button>
+          </div>
         </Container>
         <Container className="cardContentContainer">
           <Card.Img style={{width: "18rem"}}
@@ -29,7 +32,9 @@ function SwiperCard() {
           </Card.Body>
         </Container>
         <Container className="btnContainer">
-          <Button onClick={() => console.log(item.id)}>LIKE</Button>
+          <div className="btnWrapper">
+            <Button className="btn" onClick={() => console.log(item.id)}>LIKE</Button>
+          </div>
         </Container>
       </Card>
     )
