@@ -68,7 +68,7 @@ h2, p {
 	-webkit-flex-direction: column;
   flex-direction: column;
   align-items: center;
-  height: 22rem;
+  height: 23rem;
   width: 18rem;
   border-radius: 5%;
   text-align: center;
@@ -88,6 +88,17 @@ h2, p {
   padding-right: 30px;
   border: transparent;
   background-color: transparent;
+}
+
+.cardTitle {
+  font-size: 22px;
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+.cardText {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .btnContainer {

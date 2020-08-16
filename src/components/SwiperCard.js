@@ -27,8 +27,8 @@ const SwiperCard = () => {
             fluid="true" 
           />
           <Card.Body style={{width: "18rem"}}>
-            <Card.Title>{item.title}</Card.Title>
-            <Card.Subtitle>{item.body}</Card.Subtitle>
+            <Card.Title className="cardTitle">{item.title.toUpperCase()}</Card.Title>
+            <Card.Subtitle className="cardText">{item.body}</Card.Subtitle>
           </Card.Body>
         </Container>
         <Container className="btnContainer">
