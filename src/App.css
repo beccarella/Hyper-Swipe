@@ -1,11 +1,14 @@
 #mainContainer {
+
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 20%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 #mainContent {
+  background-color: blueviolet;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -20,12 +23,45 @@ h1, p {
   background: transparent;
   border: 0.02em solid #01FFFF;
   border-radius: 0.5em;
-  margin: 3em;
   padding: 1em;
   color: #01FFFF;
 }
+#contentView {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
 
-.card {
-  background-color: #01FFFF;
-  height: 33vh;
+.cardContentContainer {
+  display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  height: 22rem;
+  width: 18rem;
+  border-radius: 5%;
+  text-align: center;
+	overflow: hidden;
+  background-color: #01FFFF;  
+}
+
+.cardContainer {
+  position: absolute;
+  width: 50rem;
+  display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+  flex-direction: row;
+  margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: transparent;
+  background-color: transparent;
+}
+
+.btnContainer {
+  position: relative;
+  width: 100px;
+  margin-top: 20%;
 }

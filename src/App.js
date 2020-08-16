@@ -9,9 +9,7 @@ function App() {
     <div id="mainContainer">
       <Header />
       <div id="mainContent">
-        <button className="btn">DISLIKE</button>
           <SwiperCard />
-        <button className="btn">LIKE</button>
       </div>
     </div>
   );

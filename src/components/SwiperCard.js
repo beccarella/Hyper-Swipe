@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button, Container } from 'react-bootstrap';
 
 const url = 'https://hyper-swipe.herokuapp.com/cards';
 
@@ -13,25 +13,32 @@ function SwiperCard() {
 
   const cardItems = cardData.map((item, index) => {
     return(
-      <Card key={index} style={{width: "18rem"}} className={"card"}>
-        <Card.Img 
-          variant="top" 
-          src={item.image} 
-          style={{width: "18rem"}}
-          fluid="true" 
-        />
-        <Card.Body>
-          <Card.Title>{item.title}</Card.Title>
-          <Card.Subtitle>{item.body}</Card.Subtitle>
-        </Card.Body>
+      <Card key={index} className="cardContainer">
+        <Container className="btnContainer">
+          <Button>DISLIKE</Button>
+        </Container>
+        <Container className="cardContentContainer">
+          <Card.Img style={{width: "18rem"}}
+            variant="top" 
+            src={item.image} 
+            fluid="true" 
+          />
+          <Card.Body style={{width: "18rem"}}>
+            <Card.Title>{item.title}</Card.Title>
+            <Card.Subtitle>{item.body}</Card.Subtitle>
+          </Card.Body>
+        </Container>
+        <Container className="btnContainer">
+          <Button>LIKE</Button>
+        </Container>
       </Card>
     )
   });
 
   return (
-    <div>
-      {cardItems}
-    </div>
+      <div id="contentView">
+        {cardItems}
+      </div>
   );
 };
 
