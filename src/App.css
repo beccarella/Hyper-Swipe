@@ -20,6 +20,12 @@ h1, p {
   background: transparent;
   border: 0.02em solid #01FFFF;
   border-radius: 0.5em;
+  margin: 3em;
   padding: 1em;
   color: #01FFFF;
+}
+
+.card {
+  background-color: #01FFFF;
+  height: 33vh;
 }
