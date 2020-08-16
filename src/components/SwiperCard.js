@@ -15,7 +15,7 @@ function SwiperCard() {
     return(
       <Card key={index} className="cardContainer">
         <Container className="btnContainer">
-          <Button>DISLIKE</Button>
+          <Button onClick={() => console.log(item.id)}>DISLIKE</Button>
         </Container>
         <Container className="cardContentContainer">
           <Card.Img style={{width: "18rem"}}
@@ -29,7 +29,7 @@ function SwiperCard() {
           </Card.Body>
         </Container>
         <Container className="btnContainer">
-          <Button>LIKE</Button>
+          <Button onClick={() => console.log(item.id)}>LIKE</Button>
         </Container>
       </Card>
     )
