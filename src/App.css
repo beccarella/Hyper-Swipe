@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-h1 {
+#gradientTitle {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -23,7 +23,7 @@ h1 {
   letter-spacing: 1px;
 }
 
-h2 {
+#serifTitle {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 16px;
   letter-spacing: 8px;
@@ -31,6 +31,10 @@ h2 {
 
 h2, p {
   color: #01FFFF;
+}
+
+h2 {
+  font-size: 23px;
 }
 
 .btnWrapper {
@@ -52,8 +56,13 @@ h2, p {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(90deg, #0D85C6, #01FFFF );
-  border: transparent;
+  border: none;
   font-family: Nunito;
+}
+
+.btn:focus {
+  outline: none !important;
+  outline-offset: none !important;
 }
 
 #contentView {
@@ -105,4 +114,30 @@ h2, p {
   position: relative;
   width: 100px;
   margin-top: 15%;
+}
+
+.likedCardContainer {
+  display: -webkit-flex;
+  display: flex;
+	-webkit-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.likedCardContent {
+  position: absolute;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.likedCard {
+  position: relative;
+  width: 8rem;
+  height: 13rem;
+  border: transparent;
+  background-color: #01FFFF;
+  margin: 3em 0.5em 0em 0.5em;
 }

@@ -30,38 +30,54 @@ const SwiperCard = () => {
     removeCard(itemId);
   };
 
-  const cardItems = cardData.map((item, index) => {
-    return(
-      <Card key={index} className="cardContainer">
-        <Container className="btnContainer">
-          <div className="btnWrapper">
-            <Button className="btn" onClick={() => handleDislike(item.id, item.image, item.title)}>DISLIKE</Button>
-          </div>
-        </Container>
-        <Container className="cardContentContainer">
-          <Card.Img style={{width: "18rem"}}
-            variant="top" 
-            src={item.image} 
-            fluid="true" 
-          />
-          <Card.Body style={{width: "18rem"}}>
-            <Card.Title className="cardTitle">{item.title.toUpperCase()}</Card.Title>
-            <Card.Subtitle className="cardText">{item.body}</Card.Subtitle>
-          </Card.Body>
-        </Container>
-        <Container className="btnContainer">
-          <div className="btnWrapper">
-            <Button className="btn" onClick={() => handleLike(item.id, item.image, item.title)}>LIKE</Button>
-          </div>
-        </Container>
-      </Card>
-    )
-  });
-
   return (
-      <div id="contentView">
-        {cardItems}
-      </div>
+    <div id="contentView">
+        { cardData[0] ? (
+          cardData.map((item, index) => {
+            return(
+              <Card key={index} className="cardContainer">
+                <Container className="btnContainer">
+                  <div className="btnWrapper">
+                    <Button className="btn" onClick={() => handleDislike(item.id, item.image, item.title)}>DISLIKE</Button>
+                  </div>
+                </Container>
+                <Container className="cardContentContainer">
+                  <Card.Img style={{width: "18rem"}}
+                    variant="top" 
+                    src={item.image} 
+                    fluid="true" 
+                  />
+                  <Card.Body style={{width: "18rem"}}>
+                    <Card.Title className="cardTitle">{item.title.toUpperCase()}</Card.Title>
+                    <Card.Subtitle className="cardText">{item.body}</Card.Subtitle>
+                  </Card.Body>
+                </Container>
+                <Container className="btnContainer">
+                  <div className="btnWrapper">
+                    <Button className="btn" onClick={() => handleLike(item.id, item.image, item.title)}>LIKE</Button>
+                  </div>
+                </Container>
+              </Card>
+            )
+          })) : 
+          <div>
+            <div className="likedCardContainer">
+              <h2>These are some of the things we have in common:</h2>
+              <div className="likedCardContent">
+                {likedItem.map((item, index) => {
+                return(
+                  <Card key={index} className="likedCard">
+                    <Card.Img alt="item you liked" src={item.itemImg}/>
+                    <Card.Body>
+                      <Card.Title>{item.itemTitle}</Card.Title>
+                    </Card.Body>
+                  </Card>
+                )})}
+              </div>
+            </div>
+          </div>
+      }
+    </div>
   );
 };
 
