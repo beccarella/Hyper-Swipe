@@ -6,8 +6,21 @@ const url = 'https://hyper-swipe.herokuapp.com/cards';
 const SwiperCard = () => {
   const [cardData, setCardData] = useState([]);
   const [loading, setLoading] = useState(false)
-  const [likedItem, setLikedItem] = useState([]);
-  const [dislikedItem, setDislikedItem] = useState([]);
+
+  const useLocalState = (likedItem) => {
+    const [item, setState] = useState(localStorage.getItem(likedItem));
+
+    const setLocal = (newItem) => {
+      localStorage.setItem(likedItem, JSON.stringify(newItem));
+      setState(newItem);
+    }
+    
+    return [item, setLocal]; 
+  };
+
+  const [likedItem, setLikedItem] = useLocalState('Liked items', []);
+  const [dislikedItem, setDislikedItem] = useLocalState('Disliked items',[]);
+
 
   useEffect(() => {
     setLoading(true)
@@ -21,12 +34,12 @@ const SwiperCard = () => {
   };
   
   const handleLike = (itemId, itemImg, itemTitle) => {
-    setLikedItem([...likedItem, {itemId, itemImg, itemTitle}]);
+    setLikedItem([likedItem, {itemId, itemImg, itemTitle}]);
     removeCard(itemId);
   };
 
   const handleDislike = (itemId, itemImg, itemTitle) => {
-    setDislikedItem([...dislikedItem, {itemId, itemImg, itemTitle}]);
+    setDislikedItem([dislikedItem, {itemId, itemImg, itemTitle}]);
     removeCard(itemId);
   };
 
@@ -61,20 +74,7 @@ const SwiperCard = () => {
             )
           })) : 
           <div>
-            <div className="likedCardContainer">
-              <h2>These are some of the things we have in common:</h2>
-              <div className="likedCardContent">
-                {likedItem.map((item, index) => {
-                return(
-                  <Card key={index} className="likedCard">
-                    <Card.Img alt="item you liked" src={item.itemImg}/>
-                    <Card.Body>
-                      <Card.Title>{item.itemTitle}</Card.Title>
-                    </Card.Body>
-                  </Card>
-                )})}
-              </div>
-            </div>
+            <h2>There are no more cards.</h2>
           </div>
       }
     </div>
