@@ -1,4 +1,4 @@
-###Hyper Swipe Code Challenge
+### Hyper Swipe Code Challenge
 
 Tinder-esque web application made with ReactJS
 
