@@ -37,6 +37,8 @@ h2 {
   font-size: 23px;
 }
 
+/*----- Card and like / dislike buttons -----*/
+
 .btnWrapper {
   border-radius: 1em;
   width: 7em;
@@ -99,6 +101,10 @@ h2 {
   background-color: transparent;
 }
 
+.mainCardImage {
+  width: 18rem;
+}
+
 .cardTitle {
   font-size: 22px;
   font-weight: 700;
@@ -115,6 +121,8 @@ h2 {
   width: 100px;
   margin-top: 15%;
 }
+
+/*----- Liked cards / end result -----*/
 
 .likedCardContainer {
   display: -webkit-flex;

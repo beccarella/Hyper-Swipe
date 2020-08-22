@@ -5,22 +5,7 @@ const url = 'https://hyper-swipe.herokuapp.com/cards';
 
 const SwiperCard = () => {
   const [cardData, setCardData] = useState([]);
-  const [loading, setLoading] = useState(false)
-
-  const useLocalState = (likedItem) => {
-    const [item, setState] = useState(localStorage.getItem(likedItem));
-
-    const setLocal = (newItem) => {
-      localStorage.setItem(likedItem, JSON.stringify(newItem));
-      setState(newItem);
-    }
-    
-    return [item, setLocal]; 
-  };
-
-  const [likedItem, setLikedItem] = useLocalState('Liked items', []);
-  const [dislikedItem, setDislikedItem] = useLocalState('Disliked items',[]);
-
+  const [, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true)
@@ -33,13 +18,9 @@ const SwiperCard = () => {
     setCardData(cardData.filter(item => item.id !== id));
   };
   
-  const handleLike = (itemId, itemImg, itemTitle) => {
-    setLikedItem([likedItem, {itemId, itemImg, itemTitle}]);
-    removeCard(itemId);
-  };
-
-  const handleDislike = (itemId, itemImg, itemTitle) => {
-    setDislikedItem([dislikedItem, {itemId, itemImg, itemTitle}]);
+  const handleBtnClick = (itemId, index) => {
+    let clickedCard = cardData[index];
+    localStorage.setItem(itemId, JSON.stringify(clickedCard));
     removeCard(itemId);
   };
 
@@ -51,23 +32,23 @@ const SwiperCard = () => {
               <Card key={index} className="cardContainer">
                 <Container className="btnContainer">
                   <div className="btnWrapper">
-                    <Button className="btn" onClick={() => handleDislike(item.id, item.image, item.title)}>DISLIKE</Button>
+                    <Button className="btn" onClick={() => { item.status='Disliked'; handleBtnClick(item.id, index) }}>DISLIKE</Button>
                   </div>
                 </Container>
                 <Container className="cardContentContainer">
-                  <Card.Img style={{width: "18rem"}}
+                  <Card.Img className="mainCardImage"
                     variant="top" 
                     src={item.image} 
                     fluid="true" 
                   />
-                  <Card.Body style={{width: "18rem"}}>
+                  <Card.Body>
                     <Card.Title className="cardTitle">{item.title.toUpperCase()}</Card.Title>
                     <Card.Subtitle className="cardText">{item.body}</Card.Subtitle>
                   </Card.Body>
                 </Container>
                 <Container className="btnContainer">
                   <div className="btnWrapper">
-                    <Button className="btn" onClick={() => handleLike(item.id, item.image, item.title)}>LIKE</Button>
+                    <Button className="btn" onClick={() => { item.status='Liked'; handleBtnClick(item.id, index) }}>LIKE</Button>
                   </div>
                 </Container>
               </Card>
